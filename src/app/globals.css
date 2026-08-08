@@ -18,16 +18,18 @@
   --font-mono: var(--font-geist-mono);
 
   /* Editorial display type scale — big lowercase headings ("Services.",
-     "Studio.", the "portra" wordmark) with tight leading/tracking. */
-  --text-display: 7rem;
+     "Studio.", the "portra" wordmark) with tight leading/tracking.
+     clamp() keeps them from overflowing small viewports while still
+     hitting full size on desktop. */
+  --text-display: clamp(3rem, 2rem + 6vw, 7rem);
   --text-display--line-height: 0.92;
   --text-display--letter-spacing: -0.03em;
 
-  --text-h1: 4rem;
+  --text-h1: clamp(2.25rem, 1.2rem + 4vw, 4rem);
   --text-h1--line-height: 0.95;
   --text-h1--letter-spacing: -0.02em;
 
-  --text-h2: 2.5rem;
+  --text-h2: clamp(1.75rem, 1rem + 3vw, 2.5rem);
   --text-h2--line-height: 1.05;
   --text-h2--letter-spacing: -0.01em;
 
@@ -44,4 +46,16 @@ body {
 ::selection {
   background: var(--color-portra-black);
   color: var(--color-portra-white);
+}
+
+/* Stand-in for the Home hero photograph (blurred b/w imagery per the
+   brand brief) until the real asset is supplied — swap this out for a
+   next/image with object-cover when it arrives. */
+.hero-bg-placeholder {
+  background-color: #1a1a1a;
+  background-image:
+    radial-gradient(circle at 18% 25%, rgba(245, 243, 238, 0.22), transparent 42%),
+    radial-gradient(circle at 78% 15%, rgba(245, 243, 238, 0.14), transparent 40%),
+    radial-gradient(circle at 55% 78%, rgba(245, 243, 238, 0.1), transparent 55%);
+  filter: blur(48px) grayscale(1);
 }
