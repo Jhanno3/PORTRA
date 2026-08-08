@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  /* PORTRA brand palette */
+  --color-portra-black: #0b0b0b;
+  --color-portra-white: #f5f3ee;
+  --color-portra-neutral: #cfcbc4;
+  --color-portra-taupe: #8a8175;
+
+  /* Semantic aliases — site defaults to the light (warm white) register;
+     individual sections (Home, Studio, FAQ) flip to the dark register
+     explicitly via bg-portra-black/text-portra-white per the brand's
+     black/white editorial alternation, not via prefers-color-scheme. */
+  --color-background: var(--color-portra-white);
+  --color-foreground: var(--color-portra-black);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Editorial display type scale — big lowercase headings ("Services.",
+     "Studio.", the "portra" wordmark) with tight leading/tracking. */
+  --text-display: 7rem;
+  --text-display--line-height: 0.92;
+  --text-display--letter-spacing: -0.03em;
+
+  --text-h1: 4rem;
+  --text-h1--line-height: 0.95;
+  --text-h1--letter-spacing: -0.02em;
+
+  --text-h2: 2.5rem;
+  --text-h2--line-height: 1.05;
+  --text-h2--letter-spacing: -0.01em;
+
+  --text-eyebrow: 0.8125rem;
+  --text-eyebrow--line-height: 1.4;
+  --text-eyebrow--letter-spacing: 0.08em;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+::selection {
+  background: var(--color-portra-black);
+  color: var(--color-portra-white);
+}

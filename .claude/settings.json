@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"/c/Users/carne/.claude/projects/c--Users-carne-Desktop-PORTRA/memory/\" 2>&1)",
+      "Read(//c/Users/carne/.claude/projects/c--Users-carne-Desktop-PORTRA/memory//**)",
+      "Bash(npx eslint *)",
+      "Bash(chromium-cli --help)",
+      "Bash(cat /tmp/portra-dev.log)",
+      "Read(//tmp/**)",
+      "Bash(npx --yes playwright --version)",
+      "Bash(npx --yes playwright install chromium)",
+      "Bash(node \"C:\\\\Users\\\\carne\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-carne-Desktop-PORTRA\\\\5af82cec-fb04-4c03-8102-e091033c3e67\\\\scratchpad\\\\screenshot.mjs\")",
+      "Bash(npm install *)",
+      "Bash(cp \"C:\\\\Users\\\\carne\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-carne-Desktop-PORTRA\\\\5af82cec-fb04-4c03-8102-e091033c3e67\\\\scratchpad\\\\screenshot.mjs\" \"c:\\\\Users\\\\carne\\\\Desktop\\\\PORTRA\\\\screenshot.mjs\")",
+      "Bash(node screenshot.mjs)",
+      "Bash(lsof -ti:3000 -sTCP:LISTEN)",
+      "Bash(xargs -r kill)",
+      "PowerShell(Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -Confirm:$false; \"Killed PID $_\" })"
+    ]
+  }
+}
