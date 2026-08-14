@@ -1,11 +1,18 @@
+import { PROJECTS } from "./projects";
+
 export type NavLink = {
   label: string;
   href: string;
 };
 
+// Va separado del resto del nav por un "|" y a la izquierda de Services.
+export const PROJECTS_NAV_LINK: NavLink = {
+  label: `Projects ( ${PROJECTS.length} )`,
+  href: "/projects",
+};
+
 export const NAV_LINKS: NavLink[] = [
-  { label: "Studio", href: "/#studio" },
   { label: "Services", href: "/#services" },
-  { label: "Work", href: "/projects" },
+  { label: "Studio", href: "/#studio" },
   { label: "Contact", href: "/#studio" },
 ];

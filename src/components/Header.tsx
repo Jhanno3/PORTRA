@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { NAV_LINKS } from "@/lib/nav";
+import { NAV_LINKS, PROJECTS_NAV_LINK } from "@/lib/nav";
 import { sectionThemeFor } from "@/lib/theme";
 
 export function Header() {
@@ -29,6 +29,15 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm sm:flex">
+          <Link
+            href={PROJECTS_NAV_LINK.href}
+            className="opacity-70 transition-opacity hover:opacity-100"
+          >
+            {PROJECTS_NAV_LINK.label}
+          </Link>
+          <span aria-hidden className="text-portra-taupe">
+            |
+          </span>
           {NAV_LINKS.map((link) => (
             <Link
               key={link.label}
@@ -62,6 +71,14 @@ export function Header() {
 
       {open && (
         <nav className={`flex flex-col gap-4 border-t px-6 py-6 text-sm sm:hidden ${borderClasses}`}>
+          <Link
+            href={PROJECTS_NAV_LINK.href}
+            onClick={() => setOpen(false)}
+            className="opacity-80"
+          >
+            {PROJECTS_NAV_LINK.label}
+          </Link>
+          <span aria-hidden className={`h-px w-full ${lineClasses} opacity-20`} />
           {NAV_LINKS.map((link) => (
             <Link
               key={link.label}
