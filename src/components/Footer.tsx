@@ -15,7 +15,7 @@ export function Footer() {
   return (
     <footer className={`mt-auto border-t px-6 py-6 text-xs sm:px-10 ${classes}`}>
       <div className="mx-auto flex max-w-7xl flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-        <p>© {year} portra® studio. All rights reserved.</p>
+        <p>© {year} P<em className="italic">o</em>rtra® studio. All rights reserved.</p>
         <p>Bahía Blanca, Argentina</p>
       </div>
     </footer>

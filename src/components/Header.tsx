@@ -22,10 +22,10 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 sm:px-10">
         <Link
           href="/"
-          className="font-mono text-sm font-semibold lowercase tracking-tight"
+          className="font-mono text-sm font-semibold tracking-tight"
           onClick={() => setOpen(false)}
         >
-          portra<sup>®</sup>
+          P<em className="italic">o</em>rtra<sup>®</sup>
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm sm:flex">
