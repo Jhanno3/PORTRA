@@ -107,14 +107,16 @@ export default function Home() {
         />
 
         <div className="relative flex items-start justify-between gap-8">
-          <div>
-            <h1 className="text-display font-bold leading-none">
-              Portra<sup className="text-[0.35em] font-normal">®</sup>
-            </h1>
-            <p className="-mt-1 text-h2 font-semibold lowercase text-portra-neutral sm:-mt-2">
-              Studio
-            </p>
-          </div>
+          <h1>
+            <Image
+              src="/assets/portra-logo-white.png"
+              alt="Portra® Studio"
+              width={778}
+              height={289}
+              priority
+              className="h-auto w-[220px] sm:w-[340px] lg:w-[440px]"
+            />
+          </h1>
 
           <p className="hidden max-w-[14rem] text-right text-sm leading-relaxed text-portra-neutral sm:block">
             Strategy. Design. Content.

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -20,12 +21,14 @@ export function Header() {
   return (
     <header className={`sticky top-0 z-50 border-b ${barClasses}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 sm:px-10">
-        <Link
-          href="/"
-          className="font-mono text-sm font-semibold tracking-tight"
-          onClick={() => setOpen(false)}
-        >
-          P<em className="italic">o</em>rtra<sup>®</sup>
+        <Link href="/" onClick={() => setOpen(false)}>
+          <Image
+            src="/assets/portra-logo-white.png"
+            alt="Portra® Studio"
+            width={778}
+            height={289}
+            className={`h-6 w-auto ${isDark ? "" : "brightness-0"}`}
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm sm:flex">
