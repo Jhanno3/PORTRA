@@ -50,13 +50,20 @@ export default async function ProjectPage(
         </Link>
 
         <div className="flex flex-col gap-12">
-          {/* eslint-disable-next-line @next/next/no-img-element -- ver nota en ProjectGallery: sin recorte, cada foto respeta su proporción real */}
-          <img
-            src={coverUrl}
-            alt={project.title}
-            loading="eager"
-            className="h-auto w-full border border-portra-black/10 bg-portra-black/[0.04]"
-          />
+          <div className="relative aspect-[7/3] w-full overflow-hidden border border-portra-black/10 bg-portra-black/[0.04]">
+            {/* eslint-disable-next-line @next/next/no-img-element -- consistente con la portada del grid (aspect-[7/3], object-cover) */}
+            <img
+              src={coverUrl}
+              alt={project.title}
+              loading="eager"
+              style={
+                project.coverPosition
+                  ? { objectPosition: project.coverPosition }
+                  : undefined
+              }
+              className="h-full w-full object-cover"
+            />
+          </div>
 
           <div className="flex flex-col gap-6 border-b border-portra-black/10 pb-10 sm:flex-row sm:items-end sm:justify-between">
             <h1 className="text-h1 font-bold leading-none">{project.title}.</h1>
