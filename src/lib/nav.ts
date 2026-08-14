@@ -1,4 +1,4 @@
-import { PROJECTS } from "./projects";
+import { PROJECTS } from "@data/projects";
 
 export type NavLink = {
   label: string;

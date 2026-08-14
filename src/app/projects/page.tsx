@@ -1,4 +1,5 @@
-import { PROJECTS } from "@/lib/projects";
+import { PROJECTS } from "@data/projects";
+import { ProjectsGrid } from "@/components/ProjectsGrid";
 
 export default function ProjectsPage() {
   return (
@@ -11,32 +12,7 @@ export default function ProjectsPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2">
-          {PROJECTS.map((project) => (
-            <article key={project.name} className="flex flex-col gap-4">
-              <div
-                aria-hidden
-                className="flex aspect-[7/3] w-full items-center justify-center border border-portra-black/10 bg-portra-black/[0.04]"
-              >
-                <span className="font-mono text-[11px] uppercase tracking-wide text-portra-taupe">
-                  Imagen pendiente
-                </span>
-              </div>
-
-              <div className="flex items-baseline justify-between gap-4 border-t border-portra-black/10 pt-3">
-                <div className="flex flex-wrap items-baseline gap-x-2">
-                  <span className="font-bold">{project.name}.</span>
-                  <span className="text-sm text-portra-black/60">
-                    {project.categories.join(", ")}
-                  </span>
-                </div>
-                <span className="shrink-0 text-sm text-portra-black/60">
-                  {project.year}
-                </span>
-              </div>
-            </article>
-          ))}
-        </div>
+        <ProjectsGrid projects={PROJECTS} />
       </div>
     </main>
   );
