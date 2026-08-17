@@ -65,16 +65,77 @@ export default async function ProjectPage(
             />
           </div>
 
-          <div className="flex flex-col gap-6 border-b border-portra-black/10 pb-10 sm:flex-row sm:items-end sm:justify-between">
+          <div className="flex flex-col gap-8 border-b border-portra-black/10 pb-10 sm:flex-row sm:items-end sm:justify-between">
             <h1 className="text-h1 font-bold leading-none">{project.title}.</h1>
-            <div className="flex flex-col gap-1 text-sm text-portra-black/60 sm:items-end sm:text-right">
-              <span>{project.categories.join(", ")}</span>
-              <span>{project.year}</span>
-              <span>Photography — {project.photographer}</span>
-            </div>
+            <dl className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm sm:text-right">
+              <div>
+                <dt className="font-mono text-eyebrow uppercase text-portra-taupe">
+                  Year
+                </dt>
+                <dd className="text-portra-black/70">{project.year}</dd>
+              </div>
+              <div>
+                <dt className="font-mono text-eyebrow uppercase text-portra-taupe">
+                  Category
+                </dt>
+                <dd className="text-portra-black/70">
+                  {project.categories.join(", ")}
+                </dd>
+              </div>
+              <div>
+                <dt className="font-mono text-eyebrow uppercase text-portra-taupe">
+                  Scope of work
+                </dt>
+                <dd className="text-portra-black/70">{project.scope}</dd>
+              </div>
+              <div>
+                <dt className="font-mono text-eyebrow uppercase text-portra-taupe">
+                  Timeline
+                </dt>
+                <dd className="text-portra-black/70">{project.timeline}</dd>
+              </div>
+              <div>
+                <dt className="font-mono text-eyebrow uppercase text-portra-taupe">
+                  Photography
+                </dt>
+                <dd className="text-portra-black/70">{project.photographer}</dd>
+              </div>
+            </dl>
           </div>
 
-          <ProjectGallery images={project.images} title={project.title} />
+          {project.sections.length > 0 && (
+            <div className="flex flex-col gap-10 border-b border-portra-black/10 pb-10">
+              {project.sections.map((section, index) =>
+                section.heading ? (
+                  <div key={index} className="flex flex-col gap-4 sm:flex-row sm:gap-12">
+                    <h2 className="w-full shrink-0 font-mono text-eyebrow uppercase text-portra-taupe sm:w-48">
+                      {section.heading}
+                    </h2>
+                    <div className="flex max-w-2xl flex-col gap-4 text-sm leading-relaxed text-portra-black/70 sm:text-base">
+                      {section.body.split("\n\n").map((paragraph, pIndex) => (
+                        <p key={pIndex}>{paragraph}</p>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <div
+                    key={index}
+                    className="flex max-w-2xl flex-col gap-4 text-base leading-relaxed text-portra-black/80 sm:text-lg"
+                  >
+                    {section.body.split("\n\n").map((paragraph, pIndex) => (
+                      <p key={pIndex}>{paragraph}</p>
+                    ))}
+                  </div>
+                ),
+              )}
+            </div>
+          )}
+
+          <ProjectGallery
+            images={project.images}
+            videos={project.videos}
+            title={project.title}
+          />
         </div>
       </div>
     </main>
