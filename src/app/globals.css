@@ -48,22 +48,28 @@ body {
   color: var(--color-portra-white);
 }
 
-@keyframes hero-zoom {
-  from {
-    transform: scale(1);
+@keyframes scroll-line {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
   }
-  to {
-    transform: scale(1.08);
+  35% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(250%);
+    opacity: 0;
   }
 }
 
-.animate-hero-zoom {
-  animation: hero-zoom 20s ease-in-out infinite alternate;
+.animate-scroll-line {
+  animation: scroll-line 1.8s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-hero-zoom {
+  .animate-scroll-line {
     animation: none;
+    opacity: 0.6;
   }
 }
 

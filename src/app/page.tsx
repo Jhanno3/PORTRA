@@ -1,5 +1,20 @@
 import Image from "next/image";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { HeroSlideshow } from "@/components/HeroSlideshow";
+
+// Selección curada de fotos reales del catálogo de Projects (Cloudinary),
+// una por proyecto con fotografía disponible, para el fondo ambiental del
+// hero. Reemplaza el Fondo.png + zoom CSS provisorio (ver CLAUDE.md §2/§5).
+// manu_ginobili_* y river_* figuran en el catálogo pero todavía no están
+// subidas a Cloudinary (404) — no se usan acá hasta que estén disponibles.
+const HERO_IMAGES = [
+  "track_club_01",
+  "dow_01",
+  "track_club_04",
+  "dow_03",
+  "track_club_06",
+  "dow_02",
+];
 
 // La respuesta de la pregunta 1 es copy provisto por el dueño (brand brief).
 // Las de 2–6 son un primer borrador consistente con el resto del brief
@@ -44,17 +59,20 @@ const SERVICES = [
     title: "Strategy",
     description:
       "Communication strategy, content planning, campaign direction, project roadmaps.",
+    imagePosition: "center 15%",
   },
   {
     number: "02",
     title: "Creative",
     description:
       "Creative direction, concepts, branding, visual identity, content systems.",
+    imagePosition: "center 50%",
   },
   {
     number: "03",
     title: "Production",
     description: "Film, photography, events & experiences, post-production.",
+    imagePosition: "center 85%",
   },
 ];
 
@@ -91,16 +109,9 @@ export default function Home() {
     <main className="flex flex-1 flex-col">
       <section
         id="home"
-        className="relative flex min-h-[85vh] flex-col justify-between overflow-hidden bg-portra-black px-6 py-10 text-portra-white sm:px-10 sm:py-14"
+        className="relative flex min-h-[95vh] flex-col justify-between overflow-hidden bg-portra-black px-6 py-10 text-portra-white sm:px-10 sm:py-14"
       >
-        <Image
-          src="/assets/Fondo.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="animate-hero-zoom object-cover"
-        />
+        <HeroSlideshow images={HERO_IMAGES} />
         <div
           aria-hidden
           className="absolute inset-0 bg-gradient-to-b from-portra-black/10 via-portra-black/40 to-portra-black/85"
@@ -125,14 +136,28 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="relative flex flex-col gap-4">
-          <span className="h-px w-10 bg-portra-taupe" />
-          <p className="max-w-md text-sm leading-relaxed text-portra-neutral">
-            <span className="block font-medium text-portra-white">
-              Creative studio for brands, culture &amp; experiences.
+        <div className="relative flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+          <div className="flex flex-col gap-4">
+            <span className="h-px w-10 bg-portra-taupe" />
+            <p className="max-w-md text-sm leading-relaxed text-portra-neutral">
+              <span className="block font-medium text-portra-white">
+                Creative studio for brands, culture &amp; experiences.
+              </span>
+              From brief to delivery, without the chaos.
+            </p>
+          </div>
+
+          <a
+            href="#services"
+            className="flex flex-col items-center gap-3 self-center text-portra-neutral/70 transition-opacity hover:text-portra-white hover:opacity-100 sm:self-end"
+          >
+            <span className="font-mono text-[10px] uppercase tracking-[0.25em]">
+              Scroll
             </span>
-            From brief to delivery, without the chaos.
-          </p>
+            <span className="relative h-10 w-px overflow-hidden bg-portra-white/20">
+              <span className="animate-scroll-line absolute inset-x-0 top-0 h-2/5 bg-current" />
+            </span>
+          </a>
         </div>
       </section>
 
@@ -153,10 +178,19 @@ export default function Home() {
               <article key={service.number} className="flex flex-col gap-6">
                 <div
                   aria-hidden
-                  className="flex aspect-[4/5] w-full items-center justify-center border border-portra-black/10 bg-portra-black/[0.04]"
+                  className="relative flex aspect-[4/5] w-full items-end overflow-hidden border border-portra-black/10 bg-portra-black/[0.04]"
                 >
-                  <span className="font-mono text-[11px] uppercase tracking-wide text-portra-taupe">
-                    Imagen pendiente
+                  <Image
+                    src="/assets/Fondo.png"
+                    alt=""
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    style={{ objectPosition: service.imagePosition }}
+                    className="object-cover grayscale"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-portra-black/70 via-portra-black/0 to-portra-black/10" />
+                  <span className="relative z-10 m-3 font-mono text-[10px] uppercase tracking-wide text-portra-white/80">
+                    Imagen provisoria
                   </span>
                 </div>
 
