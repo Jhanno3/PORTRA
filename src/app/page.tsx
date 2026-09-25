@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 // Selección curada de fotos reales del catálogo de Projects (Cloudinary),
 // una por proyecto con fotografía disponible, para el fondo ambiental del
@@ -107,6 +108,7 @@ function ArrowIcon() {
 export default function Home() {
   return (
     <main className="flex flex-1 flex-col">
+      <ScrollReveal />
       <section
         id="home"
         className="relative flex min-h-[95vh] flex-col justify-between overflow-hidden bg-portra-black px-6 py-10 text-portra-white sm:px-10 sm:py-14"
@@ -166,14 +168,21 @@ export default function Home() {
         className="flex min-h-screen scroll-mt-20 items-center bg-portra-white px-8 py-24 text-portra-black sm:px-16"
       >
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-16">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div
+            data-sc-in
+            className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between"
+          >
             <h1 className="text-h1 font-bold leading-none">Services.</h1>
             <p className="max-w-xs text-sm leading-relaxed text-portra-black/70 sm:text-right">
               What we do across brands, culture &amp; experiences.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-3">
+          <div
+            data-sc-in
+            data-sc-stagger="90"
+            className="grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-3"
+          >
             {SERVICES.map((service) => (
               <article key={service.number} className="flex flex-col gap-6">
                 <div
@@ -222,7 +231,7 @@ export default function Home() {
         className="flex min-h-screen scroll-mt-20 items-center bg-portra-black px-8 py-24 text-portra-white sm:px-16"
       >
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-16">
-          <div className="flex flex-col gap-8">
+          <div data-sc-in className="flex flex-col gap-8">
             <h1 className="text-h1 font-bold leading-none">Studio.</h1>
             <p className="max-w-2xl text-lg leading-relaxed text-portra-neutral sm:text-xl">
               Portra is an independent creative studio working across
@@ -234,7 +243,11 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-x-8 gap-y-10 border-t border-portra-white/10 pt-10 sm:grid-cols-4">
+          <div
+            data-sc-in
+            data-sc-stagger="80"
+            className="grid grid-cols-2 gap-x-8 gap-y-10 border-t border-portra-white/10 pt-10 sm:grid-cols-4"
+          >
             {STUDIO_STATS.map((stat) => (
               <div key={stat.label} className="flex flex-col gap-2">
                 <p className="text-h2 font-bold leading-none">{stat.value}</p>
@@ -245,7 +258,10 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="flex flex-col gap-6 border-t border-portra-white/10 pt-10 sm:flex-row sm:items-end sm:justify-between">
+          <div
+            data-sc-in
+            className="flex flex-col gap-6 border-t border-portra-white/10 pt-10 sm:flex-row sm:items-end sm:justify-between"
+          >
             <p className="max-w-md text-h2 font-semibold leading-tight">
               Have a project in mind?{" "}
               <span className="font-normal text-portra-neutral">
@@ -269,7 +285,7 @@ export default function Home() {
         className="flex min-h-screen scroll-mt-20 items-center bg-portra-black px-8 py-24 text-portra-white sm:px-16"
       >
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-16">
-          <div className="flex flex-col gap-4">
+          <div data-sc-in className="flex flex-col gap-4">
             <h1 className="text-h1 font-bold leading-none">FAQ.</h1>
             <p className="max-w-md text-sm leading-relaxed text-portra-neutral">
               Common questions about how we work.
@@ -277,7 +293,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
-            <div className="flex flex-col gap-4">
+            <div data-sc-in className="flex flex-col gap-4">
               <p className="max-w-xs text-lg font-medium leading-snug">
                 Still have questions? We&apos;re here to help. Reach out
                 anytime.
